@@ -14,4 +14,6 @@ public interface CarRepository {
 
     public boolean deleteCar(int id);
 
+    public Car getCarById(int id);
+
 }
