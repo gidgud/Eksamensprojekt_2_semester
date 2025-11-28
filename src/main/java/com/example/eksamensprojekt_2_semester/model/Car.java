@@ -14,6 +14,8 @@ public class Car {
     Location location;
     boolean damageStatus;
 
+    public Car() {}
+
     public Car(int id, String brand, String model, int steelPrice, int tax, int emission, String color, Location location, boolean damageStatus) {
         this.id = id;
         this.brand = brand;

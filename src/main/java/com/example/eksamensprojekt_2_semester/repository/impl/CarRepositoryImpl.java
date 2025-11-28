@@ -23,19 +23,27 @@ public class CarRepositoryImpl implements CarRepository {
     @Override
     public void createCar(Car car) {
         String sql = "INSERT INTO car (id, brand, model, steel_price, tax, emission, color, location, damage_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        template.update(sql, car.getId(), car.getBrand(), car.getModel(), car.getSteelPrice(), car.getTax(), car.getEmission(), car.getColor(), car.getLocation(), car.isDamageStatus());
+        template.update(sql, car.getId(), car.getBrand(), car.getModel(), car.getSteelPrice(), car.getTax(), car.getEmission(), car.getColor(), car.getLocation(), car.getDamageStatus());
     }
 
     @Override
     public void updateCar(Car car) {
         String sql = "UPDATE car SET brand=?, model=?, steel_price=?, tax=?, emission=?, color=?, location=?, damage_status=? WHERE id=?";
-        template.update(sql, car.getBrand(), car.getModel(), car.getSteelPrice(), car.getTax(), car.getEmission(), car.getColor(), car.getLocation(), car.isDamageStatus(), car.getId());
+        template.update(sql, car.getBrand(), car.getModel(), car.getSteelPrice(), car.getTax(), car.getEmission(), car.getColor(), car.getLocation(), car.getDamageStatus(), car.getId());
     }
 
     @Override
     public boolean deleteCar(int id) {
         String sql = "DELETE FROM car WHERE id=?";
         return template.update(sql, id) > 0;
+    }
+
+    @Override
+    public Car getCarById(int id) {
+        String sql = "SELECT * FROM car WHERE id=?";
+	RowMapper<Car> rowMapper = new BeanPropertyRowMapper<>(Car.class);
+	Car car = template.queryForObject(sql, rowMapper, id);
+	return car;
     }
 
 
