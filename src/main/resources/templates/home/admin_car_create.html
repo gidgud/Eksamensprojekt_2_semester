@@ -37,24 +37,24 @@
     <div>
         <label>Emission:</label>
         <input type="number" step="0.01" th:field="*{emission}" required/>
+    </div>
 
+    <div>
+        <label>Color:</label>
+        <input type="text" th:field="*{color}" required/>
+    </div>
 
-        <div>
-            <label>Color:</label>
-            <input type="text" th:field="*{color}" required/>
-        </div>
+    <div>
+        <label>Location:</label>
+        <input type="text" th:field="*{location}" required/>
+    </div>
 
-        <div>
-            <label>Location:</label>
-            <input type="text" th:field="*{location}" required/>
-        </div>
+    <div>
+        <label>Damage Status:</label>
+        <input type="text" th:field="*{damageStatus}" required/>
+    </div>
 
-        <div>
-            <label>Damage Status:</label>
-            <input type="text" th:field="*{damageStatus}" required/>
-        </div>
-
-        <button type="submit">Create Car</button>
+    <button type="submit">Create Car</button>
 </form>
 </body>
 </html>
