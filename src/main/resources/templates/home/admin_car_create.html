@@ -10,9 +10,6 @@
 
 	<form th:action="@{/create-car}" th:object="${car}" method="post" enctype="multipart/form-data">
 
-		<label>ID:</label>
-		<input type="number" th:field="*{id}" required /><br /><br />
-
 		<label>Brand:</label>
 		<input type="text" th:field="*{brand}" required /><br /><br />
 
