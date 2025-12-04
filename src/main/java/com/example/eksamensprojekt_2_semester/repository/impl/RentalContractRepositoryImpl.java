@@ -24,7 +24,7 @@ public class RentalContractRepositoryImpl implements RentalContractRepository {
 
 	public void createRentalContract(RentalContract rentalContract) {
 		String sql = "INSERT INTO rental_contract (from_date_time, to_date_time, max_km, unlimited, active, user_id, car_id, vehicle_report_id) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
-		template.update(sql, rentalContract.getFromDataTime(), rentalContract.getToDateTime(), rentalContract.getMaxKm(), rentalContract.isUnlimited(), rentalContract.isActive(), rentalContract.getUserId(), rentalContract.getCarId(), rentalContract.getVehicleReportId());
+		template.update(sql, rentalContract.getFromDateTime(), rentalContract.getToDateTime(), rentalContract.getMaxKm(), rentalContract.isUnlimited(), rentalContract.isActive(), rentalContract.getUserId(), rentalContract.getCarId(), rentalContract.getVehicleReportId());
 	}
 
 	public RentalContract getRentalContractById(int id) {
