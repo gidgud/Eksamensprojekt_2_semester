@@ -25,16 +25,18 @@ public class DamageRepositoryImpl implements DamageRepository {
     }
 
     @Override
-    public int deleteDamageById(int vehicleReportId) {
-        String sql = "DELETE FROM damages where vehicle_report_id = ?";
-        return template.update(sql, vehicleReportId);
-    }
-
-    @Override
     public void createDamageById(Damage damage) {
         String sql = "INSERT INTO damages (name, price, vehicle_report_id) VALUES (?, ?, ?)";
         template.update(sql, damage.getName(), damage.getPrice(), damage.getVehicleReportId());
 
     }
+
+    @Override
+    public int deleteDamageById(int vehicleReportId) {
+        String sql = "DELETE FROM damages where vehicle_report_id = ?";
+        return template.update(sql, vehicleReportId);
+    }
+
+
 
 }
