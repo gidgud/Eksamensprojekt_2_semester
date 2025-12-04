@@ -64,13 +64,19 @@
 
         <div class="rent_button">
             <a href="home/createUser">
-            <button type="submit">Lej bilen</button>
+            <button type="submit"
+                    th:attr= "disabled=${isDamaged or isRented or isSold}">
+                Lej bilen
+            </button>
             </a>
         </div>
 
         <div class="buy_button">
             <a href="home/createUser">
-            <button type="submit">Køb bilen</button>
+                <button type="submit"
+                        th:attr= "disabled=${isDamaged or isRented or isSold}">
+                    Lej bilen
+            </button>
             </a>
         </div>
 
