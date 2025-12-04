@@ -9,8 +9,9 @@ public interface DamageRepository {
 
     List<Damage> fetchDamageById(int vehicleReport);
 
+    void createDamageById(Damage damage);
+
     int deleteDamageById(int vehicleReport);
 
-    void createDamageById(Damage damage);
 
 }
