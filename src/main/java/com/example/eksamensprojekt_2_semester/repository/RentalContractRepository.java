@@ -2,6 +2,7 @@ package com.example.eksamensprojekt_2_semester.repository;
 
 import java.util.List;
 
+import com.example.eksamensprojekt_2_semester.model.Car;
 import com.example.eksamensprojekt_2_semester.model.RentalContract;
 
 public interface RentalContractRepository {
@@ -13,4 +14,8 @@ public interface RentalContractRepository {
 	RentalContract getRentalContractById(int id);
 
 	boolean hasRentalContract(int id);
+
+	List<Car> getTodaysRentals();
+
+	List<Car> getTodaysReturns();
 }
