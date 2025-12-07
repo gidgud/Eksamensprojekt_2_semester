@@ -31,6 +31,8 @@ public class RentalContractService {
 		return getRentalContractById(id) != null;
 	}
 
+	public List<RentalContract> getActiveRentalContracts() {
+		return rentalContractRepository.getActiveRentalContracts();
 	public List<Car> getTodaysRentals (){
 		return rentalContractRepository.getTodaysRentals();
 	}
