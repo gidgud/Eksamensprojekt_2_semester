@@ -2,6 +2,7 @@ package com.example.eksamensprojekt_2_semester.repository.impl;
 
 import java.util.List;
 
+import com.example.eksamensprojekt_2_semester.model.Car;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -24,7 +25,7 @@ public class RentalContractRepositoryImpl implements RentalContractRepository {
 
 	public void createRentalContract(RentalContract rentalContract) {
 		String sql = "INSERT INTO rental_contract (from_date_time, to_date_time, max_km, unlimited, active, user_id, car_id, vehicle_report_id) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
-		template.update(sql, rentalContract.getFromDataTime(), rentalContract.getToDateTime(), rentalContract.getMaxKm(), rentalContract.isUnlimited(), rentalContract.isActive(), rentalContract.getUserId(), rentalContract.getCarId(), rentalContract.getVehicleReportId());
+		template.update(sql, rentalContract.getFromDateTime(), rentalContract.getToDateTime(), rentalContract.getMaxKm(), rentalContract.isUnlimited(), rentalContract.isActive(), rentalContract.getUserId(), rentalContract.getCarId(), rentalContract.getVehicleReportId());
 	}
 
 	public RentalContract getRentalContractById(int id) {
@@ -44,5 +45,24 @@ public class RentalContractRepositoryImpl implements RentalContractRepository {
 		String sql = "SELECT AVG(DATEDIFF(to_date_time, from_date_time)) as avg_contract_length_days FROM rental_contract";
 		return averageRentalPeriod;
 	}
+
+	public List<RentalContract> getActiveRentalContracts() {
+		String sql = "SELECT * FROM rental_contract WHERE active=true";
+		RowMapper<RentalContract> rowMapper = new BeanPropertyRowMapper<>(RentalContract.class);
+		return template.query(sql, rowMapper);
+	}
+
+	public List<Car> getTodaysRentals () {
+		String sql = "SELECT car.* FROM rental_contract JOIN car ON rental_contract.car_id = car.id WHERE rental_contract.to_date_time = CURDATE()";
+		RowMapper<Car> rowMapper = new BeanPropertyRowMapper<>(Car.class);
+		return template.query(sql, rowMapper);
+	}
+
+	public List<Car> getTodaysReturns() {
+		String sql = "SELECT car.* FROM rental_contract JOIN car ON rental_contract.car_id = car.id WHERE rental_contract.from_date_time = CURDATE()";
+		RowMapper<Car> rowMapper = new BeanPropertyRowMapper<>(Car.class);
+		return template.query(sql, rowMapper);
+	}
+
 
 }

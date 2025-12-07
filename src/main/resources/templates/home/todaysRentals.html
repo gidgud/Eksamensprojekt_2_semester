@@ -3,32 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 
-<header>
-    <nav>
-        <a><img src="">Bilabonnement</a>
-        <a>KPI</a>
-        <a>Registrere skade</a>
-        <a>Biler</a>
-        <a>Log ud</a>
-    </nav>
-</header>
+<nav>
+    <a href="/admin_index"><img src="BILABONNEMENT_LOGO.png" alt="Logo" class="nav-img"></a>
+    <div class="nav-links">
+        <a href="/admin_index">KPI</a>
+        <a href="/register_damages">Registrer Skader</a>
+        <a href="/allCarsAdmin">Biler</a>
+        <a href="/index" class="log-out">Log ud</a>
+    </div>
+</nav>
 
 <div class="page-info">
-    <h1>Udlejnings oversigt</h1>
-    <p>På den her side finder du en oversigt af alle biler der er udlejet i dag </p>
+    <h1>Udlejning og indlevering</h1>
+    <p>På den her side finder du en oversigt af alle biler der skal udlejes og indleveres i dag </p>
 </div>
 
-<div class="list-of-rented-cars">
-    <div class="cars" th:each="car : ${cars}">
-        <h2 th:text="${car.id}"></h2>
-        <h2 th:text="${car.brand}"></h2>
-        <h2 th:text="${car.model}"></h2>
-        <h2 th:text="${car.color}"></h2>
-        <h2 th:text="${car.location}"></h2>
-    </div>
+<h2>Udlejninger i dag</h2>
+<div class="list-of-todays-rentals">
+    <table class="list-of-cars list-hover">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Color</th>
+            <th>Location</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="car : ${todaysRentals}">
+            <td th:text="${car.id}"></td>
+            <td th:text="${car.brand}"></td>
+            <td th:text="${car.model}"></td>
+            <td th:text="${car.color}"></td>
+            <td th:text="${car.location}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<h2>Indleveringer i dag</h2>
+<div class="list-of-todays-rentals">
+    <table class="list-of-cars">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Color</th>
+            <th>Location</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="car : ${todaysReturns}">
+            <td th:text="${car.id}"></td>
+            <td th:text="${car.brand}"></td>
+            <td th:text="${car.model}"></td>
+            <td th:text="${car.color}"></td>
+            <td th:text="${car.location}"></td>
+        </tr>
+        </tbody>
+    </table>
 </div>
 
 </body>

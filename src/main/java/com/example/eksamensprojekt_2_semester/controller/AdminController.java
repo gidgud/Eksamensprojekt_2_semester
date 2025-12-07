@@ -1,6 +1,7 @@
 package com.example.eksamensprojekt_2_semester.controller;
 
 import com.example.eksamensprojekt_2_semester.model.Admin;
+import com.example.eksamensprojekt_2_semester.model.Car;
 import com.example.eksamensprojekt_2_semester.service.AdminService;
 import com.example.eksamensprojekt_2_semester.service.CarService;
 import com.example.eksamensprojekt_2_semester.service.RentalContractService;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.ui.Model;
 
+import java.util.List;
+
 @Controller
 public class AdminController {
 
@@ -19,6 +22,8 @@ public class AdminController {
 
     @Autowired
     CarService carService;
+    @Autowired
+    private RentalContractService rentalContractService;
 
     @Autowired
     RentalContractService rentalContractService;
@@ -51,13 +56,17 @@ public class AdminController {
     }
 
     @GetMapping ("/allCarsAdmin")
-    public String allCarsAdmin(){
+    public String allCarsAdmin(Model model){
+        List<Car> cars = carService.getAllCars();
+        model.addAttribute("cars", cars);
         return "home/allCarsAdmin";
     }
 
-    @GetMapping ("/todaysRentals")
-    public String todaysRentals(){
-        return "home/todaysRentals";
+    @GetMapping ("/rentals")
+    public String todaysRentals(Model model){
+        model.addAttribute("todaysRentals", rentalContractService.getTodaysRentals());
+        model.addAttribute("todaysReturns", rentalContractService.getTodaysReturns());
+        return ("home/todaysRentals");
     }
 
 
