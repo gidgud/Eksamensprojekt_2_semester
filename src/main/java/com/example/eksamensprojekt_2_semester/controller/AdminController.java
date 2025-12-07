@@ -22,11 +22,9 @@ public class AdminController {
 
     @Autowired
     CarService carService;
-    @Autowired
-    private RentalContractService rentalContractService;
 
     @Autowired
-    RentalContractService rentalContractService;
+    private RentalContractService rentalContractService;
 
     @GetMapping("/login")
     public String login(){

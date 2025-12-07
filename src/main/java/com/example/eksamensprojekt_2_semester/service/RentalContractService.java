@@ -34,10 +34,10 @@ public class RentalContractService {
 	public int getAverageRentalPeriod(){
 		return rentalContractRepository.getAverageRentalPeriod();
 		}
-	}
 
 	public List<RentalContract> getActiveRentalContracts() {
 		return rentalContractRepository.getActiveRentalContracts();
+	}
 	public List<Car> getTodaysRentals (){
 		return rentalContractRepository.getTodaysRentals();
 	}
