@@ -38,4 +38,10 @@ public class RentalContractRepositoryImpl implements RentalContractRepository {
 		return getRentalContractById(id) != null;
 	}
 
+	public List<RentalContract> getActiveRentalContracts() {
+		String sql = "SELECT * FROM rental_contract WHERE active=true";
+		RowMapper<RentalContract> rowMapper = new BeanPropertyRowMapper<>(RentalContract.class);
+		return template.query(sql, rowMapper);
+	}
+
 }

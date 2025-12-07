@@ -1,5 +1,7 @@
 package com.example.eksamensprojekt_2_semester.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +27,13 @@ public class RentalContractController {
 	public String createCar(@ModelAttribute RentalContract rentalContract) {
 		rentalContractService.createRentalContract(rentalContract);
 		return "redirect:/create-rental-contract";
+	}
+
+	@GetMapping("/show-active-rental-contracts")
+	public String showActiveRentalContracts(Model model) {
+		List<RentalContract> activeRentalContracts = rentalContractService.getActiveRentalContracts();
+		model.addAttribute("rental_contracts", activeRentalContracts);
+		return "home/show_active_rental_contracts";
 	}
 
 }

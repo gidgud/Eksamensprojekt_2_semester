@@ -29,4 +29,8 @@ public class RentalContractService {
 	public boolean hasRentalContract(int id){
 		return getRentalContractById(id) != null;
 	}
+
+	public List<RentalContract> getActiveRentalContracts() {
+		return rentalContractRepository.getActiveRentalContracts();
+	}
 }
