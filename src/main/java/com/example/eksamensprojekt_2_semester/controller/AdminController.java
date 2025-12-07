@@ -25,6 +25,9 @@ public class AdminController {
     @Autowired
     private RentalContractService rentalContractService;
 
+    @Autowired
+    RentalContractService rentalContractService;
+
     @GetMapping("/login")
     public String login(){
         return "home/login";
@@ -46,7 +49,9 @@ public class AdminController {
     @GetMapping ("/admin_index")
     public String admin_index(Model model){
         int totalCars = carService.getTotalCars();
+        int averageRentalPeriod = rentalContractService.getAverageRentalPeriod();
         model.addAttribute("totalCars", totalCars);
+        model.addAttribute("averageRentalPeriod", averageRentalPeriod);
         return "home/admin_index";
     }
 

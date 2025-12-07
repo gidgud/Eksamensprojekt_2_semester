@@ -15,6 +15,7 @@ public interface RentalContractRepository {
 
 	boolean hasRentalContract(int id);
 
+	int getAverageRentalPeriod();
 	List<RentalContract> getActiveRentalContracts();
 	List<Car> getTodaysRentals();
 
