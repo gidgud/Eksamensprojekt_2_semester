@@ -15,6 +15,28 @@
 	</div>
 </nav>
 
+<div>
+	<label>Lokation:</label>
+	<select id="location-filter" onchange="sortCars()">
+		<option th:value="Alle" th:text="'Alle'">Alle</option>
+		<option th:value="NORDJYLLAND" th:text="'NORDJYLLAND'">NORDJYLLAND</option>
+		<option th:value="MIDTJYLLAND" th:text="'MIDTJYLLAND'">MIDTJYLLAND</option>
+		<option th:value="SOENDERJYLLAND" th:text="'SOENDERJYLLAND'">SOENDERJYLLAND</option>
+		<option th:value="FYN" th:text="'FYN'">FYN</option>
+		<option th:value="SJAELLAND" th:text="'SJAELLAND'">SJAELLAND</option>
+	</select>
+</div>
+
+<div>
+	<label>Tilgængelighed:</label>
+	<select id="availability-filter" onchange="sortCars()">
+		<option th:value="'Køb og leje'" th:text="'Køb og leje'">Køb og leje</option>
+		<option th:value="'Køb'" th:text="'Køb'">Køb</option>
+		<option th:value="'Leje'" th:text="'Leje'">Leje</option>
+	</select>
+</div>
+
+
 <div class="all-cars-description">
 	Herunder ses alle bilerne i vores sortiment.
 </div>
@@ -46,26 +68,6 @@
 
 		</div>
 	</div>
-</div>
-<div>
-	<label>Lokation:</label>
-	<select id="location-filter" onchange="sortCars()">
-		<option th:value="Alle" th:text="'Alle'">Alle</option>
-		<option th:value="NORDJYLLAND" th:text="'NORDJYLLAND'">NORDJYLLAND</option>
-		<option th:value="MIDTJYLLAND" th:text="'MIDTJYLLAND'">MIDTJYLLAND</option>
-		<option th:value="SOENDERJYLLAND" th:text="'SOENDERJYLLAND'">SOENDERJYLLAND</option>
-		<option th:value="FYN" th:text="'FYN'">FYN</option>
-		<option th:value="SJAELLAND" th:text="'SJAELLAND'">SJAELLAND</option>
-	</select>
-</div>
-
-<div>
-	<label>Tilgængelighed:</label>
-	<select id="availability-filter" onchange="sortCars()">
-		<option th:value="'Køb og leje'" th:text="'Køb og leje'">Køb og leje</option>
-		<option th:value="'Køb'" th:text="'Køb'">Køb</option>
-		<option th:value="'Leje'" th:text="'Leje'">Leje</option>
-	</select>
 </div>
 
 <table>
