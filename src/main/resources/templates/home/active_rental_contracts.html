@@ -21,7 +21,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="contract : ${rentalContracts}">
+        <tr th:each="contract : ${activeRentalContracts}">
             <td th:text="${contract.id}"></td>
             <td th:text="${contract.carId}"></td>
             <td th:text="${#temporals.format(contract.fromDateTime, 'dd-MM-yyyy HH:mm')}"></td>

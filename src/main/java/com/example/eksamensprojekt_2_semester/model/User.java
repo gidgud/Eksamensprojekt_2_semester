@@ -9,11 +9,11 @@ public class User {
     int zip;
     int phoneNumber;
     String email;
-    int CPR;
+    String CPR;
 
     public User() {}
 
-    public User(int id, String firstName, String lastName, String address, int zip, int phoneNumber, String email, int CPR) {
+    public User(int id, String firstName, String lastName, String address, int zip, int phoneNumber, String email, String CPR) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -80,11 +80,11 @@ public class User {
         this.email = email;
     }
 
-    public int getCPR() {
+    public String getCPR() {
         return CPR;
     }
 
-    public void setCPR(int CPR) {
+    public void setCPR(String CPR) {
         this.CPR = CPR;
     }
 

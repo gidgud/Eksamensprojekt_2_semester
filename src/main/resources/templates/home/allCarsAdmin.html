@@ -39,6 +39,7 @@
         <th>Color</th>
         <th>Location</th>
         <th></th>
+        <th></th>
     </tr>
     </thead>
 
@@ -49,7 +50,8 @@
         <td th:text="${car.model}"></td>
         <td th:text="${car.color}"></td>
         <td th:text="${car.location}"></td>
-        <td><a class="edit-car" th:href="@{/update-car(id=${car.id})}">Rediger</a></td>
+        <td><a class="edit-car" th:href="@{/update-car(id=${car.id})}">Rediger bil</a></td>
+        <td><a class="edit-car" th:href="@{/updateVehicleReport(id=${vehicleReport.id})}">Rediger Skade Rapport</a></td>
     </tr>
     </tbody>
 </table>

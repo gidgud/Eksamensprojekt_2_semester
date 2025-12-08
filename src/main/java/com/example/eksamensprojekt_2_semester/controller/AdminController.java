@@ -2,9 +2,11 @@ package com.example.eksamensprojekt_2_semester.controller;
 
 import com.example.eksamensprojekt_2_semester.model.Admin;
 import com.example.eksamensprojekt_2_semester.model.Car;
+import com.example.eksamensprojekt_2_semester.model.VehicleReport;
 import com.example.eksamensprojekt_2_semester.service.AdminService;
 import com.example.eksamensprojekt_2_semester.service.CarService;
 import com.example.eksamensprojekt_2_semester.service.RentalContractService;
+import com.example.eksamensprojekt_2_semester.service.VehicleReportService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,6 +27,8 @@ public class AdminController {
 
     @Autowired
     private RentalContractService rentalContractService;
+    @Autowired
+    private VehicleReportService vehicleReportService;
 
     @GetMapping("/login")
     public String login(){
@@ -55,8 +59,10 @@ public class AdminController {
 
     @GetMapping ("/allCarsAdmin")
     public String allCarsAdmin(Model model){
+        List<VehicleReport> vehicleReports = vehicleReportService.getAllVehicleReports();
         List<Car> cars = carService.getAllCars();
         model.addAttribute("cars", cars);
+        model.addAttribute("vehicleReports", vehicleReports);
         return "home/allCarsAdmin";
     }
 

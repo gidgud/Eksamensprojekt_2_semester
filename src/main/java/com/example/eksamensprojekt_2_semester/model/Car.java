@@ -13,7 +13,7 @@ public class Car {
     private int tax;
     private int emission;
     private String color;
-    private Location location;
+    private String location;
     private boolean damageStatus;
 
     // Java maps BLOB to byte[] in jdbc
@@ -21,7 +21,7 @@ public class Car {
 
     public Car() {}
 
-    public Car(int id, String brand, String model, int steelPrice, int tax, int emission, String color, Location location, boolean damageStatus) {
+    public Car(int id, String brand, String model, int steelPrice, int tax, int emission, String color, String location, boolean damageStatus) {
         this.id = id;
         this.brand = brand;
         this.model = model;
@@ -89,11 +89,11 @@ public class Car {
         this.color = color;
     }
 
-    public Location getLocation() {
+    public String getLocation() {
         return location;
     }
 
-    public void setLocation(Location location) {
+    public void setLocation(String location) {
         this.location = location;
     }
 

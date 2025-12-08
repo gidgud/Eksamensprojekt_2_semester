@@ -77,7 +77,7 @@
         </div>
 
         <div class="rent-button">
-            <a href="home/createUser">
+            <a th:href="@{/create-user(id=${car.id})}">
                 <button type="submit"
                         th:attr="disabled=${isDamaged or isRented or isSold}">
                     Lej bilen
@@ -86,7 +86,7 @@
         </div>
 
         <div class="buy-button">
-            <a href="home/createUser">
+            <a th:href="@{/create-user(id=${car.id})}">
                 <button type="submit"
                         th:attr="disabled=${isDamaged or isSold}">
                     Køb bilen
