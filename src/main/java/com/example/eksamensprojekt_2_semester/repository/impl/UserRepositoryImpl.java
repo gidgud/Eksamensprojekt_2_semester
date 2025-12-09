@@ -1,10 +1,16 @@
 package com.example.eksamensprojekt_2_semester.repository.impl;
 
-import com.example.eksamensprojekt_2_semester.model.User;
-import com.example.eksamensprojekt_2_semester.repository.UserRepository;
+import java.sql.PreparedStatement;
+import java.sql.Statement;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
+
+import com.example.eksamensprojekt_2_semester.model.User;
+import com.example.eksamensprojekt_2_semester.repository.UserRepository;
 
 @Repository
 public class UserRepositoryImpl implements UserRepository {
@@ -13,8 +19,25 @@ public class UserRepositoryImpl implements UserRepository {
     JdbcTemplate template;
 
     @Override
-    public void createUser(User user){
+    public User createUser(User user){
         String sql = "INSERT INTO user (firstName, lastName, address, zip, phoneNumber, email, CPR) VALUES (?, ?, ?, ?, ?, ?, ?)";
-        template.update(sql, user.getFirstName(), user.getLastName(), user.getAddress(), user.getZip(), user.getPhoneNumber(), user.getEmail(), user.getCPR());
+	KeyHolder keyHolder = new GeneratedKeyHolder();
+	
+	    template.update(connection -> {
+        PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+        ps.setString(1, user.getFirstName());
+        ps.setString(2, user.getLastName());
+        ps.setString(3, user.getAddress());
+        ps.setInt(4, user.getZip());
+        ps.setInt(5, user.getPhoneNumber());
+        ps.setString(6, user.getEmail());
+        ps.setString(7, user.getCPR());
+        return ps;
+    }, keyHolder);
+    
+    // Set the auto-generated ID on the user object
+    user.setId(keyHolder.getKey().intValue());
+	return user;
     }
+
 }

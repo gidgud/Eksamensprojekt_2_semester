@@ -8,20 +8,23 @@
 
 <body>
 
-<nav>
-	<a href="/"><img src="BILABONNEMENT_LOGO.png" alt="Logo" class="nav-img"></a>
-	<div class="nav-links">
-		<a href="/cars">Lej bil</a>
-		<a href="/cars">Køb bil</a>
-		<a href="/faq">FAQ</a>
-	</div>
-</nav>
+	<nav>
+		<a href="/"><img src="BILABONNEMENT_LOGO.png" alt="Logo" class="nav-img"></a>
+		<div class="nav-links">
+			<a href="/cars">Lej bil</a>
+			<a href="/cars">Køb bil</a>
+			<a href="/faq">FAQ</a>
+		</div>
+	</nav>
 
 	<h1>Create New Rental Contract</h1>
 
 	<div class="form-box">
 		<form th:action="@{/create-rental-contract}" th:object="${rental_contract}" method="post"
 			class="CRUD-form">
+
+			<input type="hidden" th:field="*{carId}" />
+			<input type="hidden" th:field="*{userId}" />
 
 			<div>
 				<label>From Date Time:</label>

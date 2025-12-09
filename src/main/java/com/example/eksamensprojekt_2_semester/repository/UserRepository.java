@@ -4,5 +4,5 @@ import com.example.eksamensprojekt_2_semester.model.User;
 
 public interface UserRepository {
 
-    public void createUser(User user);
+    public User createUser(User user);
 }

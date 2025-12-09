@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class UserController {
@@ -33,9 +34,12 @@ public class UserController {
     }
 
     @PostMapping("/create-user")
-    public String createUser(@ModelAttribute User user, @RequestParam int id){
-        userService.createUser(user);
-        return "redirect:/create-user?id=" + id;
+    public String createUser(@ModelAttribute User user, @RequestParam int id, RedirectAttributes redirectAttributes){
+	
+        User savedUser = userService.createUser(user);
+	redirectAttributes.addAttribute("carId", id);
+	redirectAttributes.addAttribute("userId", savedUser.getId());
+        return "redirect:/rental-contract-create";
     }
 
 }
