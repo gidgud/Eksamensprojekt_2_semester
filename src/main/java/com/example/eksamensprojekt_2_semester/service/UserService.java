@@ -15,8 +15,8 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public void createUser(User user) {
-        userRepository.createUser(user);
+    public User createUser(User user) {
+        return userRepository.createUser(user);
     }
 
 }
