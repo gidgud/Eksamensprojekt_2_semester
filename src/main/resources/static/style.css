@@ -203,6 +203,35 @@ h2 {
     text-align: center;
     padding-bottom: 25px;
 }
+/* ------------------
+    CSS FOR REPORT
+-------------------*/
+.damage-list {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    /*table-layout: fixed;*/
+    text-align: center;
+}
+
+.damage-list td {
+    padding: 10px 6px;
+    border-bottom: 1px solid #E5E5E5;
+}
+
+.damage-list th {
+    font-weight: 600;
+    padding: 10px 6px 15px;
+}
+
+.damage-list tbody tr:hover {
+    background: #F2F2F2;
+}
+
+
+.report-form {
+
+}
 
 /* ------------------
     CSS FOR LOGIN
