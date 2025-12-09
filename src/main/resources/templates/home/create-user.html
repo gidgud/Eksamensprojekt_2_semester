@@ -22,11 +22,10 @@
 		<h1>Placeholder</h1>
 	</div>
 
-	<div class="create-user-page">
-		<div class="car-image-createUser">
-			<img th:if="${car.imageBase64 != null}" th:src="'data:image/jpeg;base64,' + ${car.imageBase64}"
-				style="width:150px; height:auto;" />
-		</div>
+<div class="page-structure">
+    <div class="car-img">
+        <img th:if="${car.imageBase64 != null}" th:src="'data:image/jpeg;base64,' + ${car.imageBase64}"/>
+    </div>
 
 		<div class="user-form-box">
 
