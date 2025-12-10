@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>show_specific_car</title>
-    <link rel="stylesheet" href="/test.css">
+    <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
@@ -83,7 +83,7 @@
 
         <div class="CRUD-buttons">
 
-        
+
             <a th:href="@{/create-user(carId=${car.id})}">
                 <button type="submit"
                         th:attr="disabled=${isDamaged or isRented or isSold}">
@@ -91,7 +91,6 @@
                 </button>
             </a>
 
-        
             <a th:href="@{/create-user(carId=${car.id})}">
                 <button type="submit"
                         th:attr="disabled=${isDamaged or isSold}">
@@ -99,9 +98,9 @@
                 </button>
             </a>
 
+        </div>
 
-        
-    
+    </div>
 
 </div>
 
@@ -109,7 +108,8 @@
 
     <div class="footer-section">
         <h3>Find os</h3>
-        <p>Brøndbyøstervej 23, 2610 Brøndby</p>
+        <p>Brøndbyøstervej 23,</p>
+        <p>2610 Brøndby</p>
     </div>
 
     <div class="footer-section">
