@@ -16,37 +16,39 @@
     </div>
 </nav>
 
-<a href="/" class="btn">Tilbage</a>
-
-<div class="page-info">
-    <h1>Biler</h1>
-</div>
-
-<div class="filters">
-    <div>
-        <label>Lokation:</label>
-        <select id="location-filter" onchange="sortCars()">
-            <option th:value="Alle" th:text="'Alle'">Alle</option>
-            <option th:value="NORDJYLLAND" th:text="'Nordjylland'">NORDJYLLAND</option>
-            <option th:value="MIDTJYLLAND" th:text="'Midtjylland'">MIDTJYLLAND</option>
-            <option th:value="SOENDERJYLLAND" th:text="'Sønderjylland'">SOENDERJYLLAND</option>
-            <option th:value="FYN" th:text="'Fyn'">FYN</option>
-            <option th:value="SJAELLAND" th:text="'Sjælland'">SJAELLAND</option>
-        </select>
+<div class="background-img">
+    <div class="btn">
+        <a href="/" >Tilbage</a>
     </div>
 
-    <div>
-        <label>Tilgængelighed:</label>
-        <select id="availability-filter" onchange="sortCars()">
-            <option th:value="'Køb og leje'" th:text="'Køb og leje'">Køb og leje</option>
-            <option th:value="Køb" th:text="Køb" th:selected="${availability == 'Køb'}">Køb</option>
-            <option th:value="Leje" th:text="Leje" th:selected="${availability == 'Leje'}">Leje</option>
-        </select>
+    <div class="page-info">
+        <h1>Biler</h1>
     </div>
-</div>
+
+    <div class="filters">
+        <div>
+            <label>Lokation:</label>
+            <select id="location-filter" onchange="sortCars()">
+                <option th:value="Alle" th:text="'Alle'">Alle</option>
+                <option th:value="NORDJYLLAND" th:text="'Nordjylland'">NORDJYLLAND</option>
+                <option th:value="MIDTJYLLAND" th:text="'Midtjylland'">MIDTJYLLAND</option>
+                <option th:value="SOENDERJYLLAND" th:text="'Sønderjylland'">SOENDERJYLLAND</option>
+                <option th:value="FYN" th:text="'Fyn'">FYN</option>
+                <option th:value="SJAELLAND" th:text="'Sjælland'">SJAELLAND</option>
+            </select>
+        </div>
 
 
-<div id="car-list-container">
+        <div>
+            <label>Tilgængelighed:</label>
+            <select id="availability-filter" onchange="sortCars()">
+                <option th:value="'Køb og leje'" th:text="'Køb og leje'">Køb og leje</option>
+                <option th:value="Køb" th:text="Køb" th:selected="${availability == 'Køb'}">Køb</option>
+                <option th:value="Leje" th:text="Leje" th:selected="${availability == 'Leje'}">Leje</option>
+            </select>
+        </div>
+    </div>
+
 
     <div class="cars-list" id="car-list" th:fragment="car-list">
 
