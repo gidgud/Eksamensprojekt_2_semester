@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>All cars admin</title>
-    <link rel="stylesheet" href="/style.css">
+    <title>Title</title>
 </head>
 <body>
 
@@ -19,20 +18,12 @@
     </div>
 </nav>
 
-<a href="/admin-index" class="btn">Tilbage</a>
+<a href="/admin-pick-highlighted-cars" class="btn">Tilbage</a>
 
 <div class="page-info">
-    <h1>Bil oversigt</h1>
-    <p>På den her side finder du en oversigt af alle biler i systemet. Her finder du alt relevant
-        information og redigere dem.</p>
+    <h1>Rediger fremhævede biler</h1>
+    <p> Vælg de fremhævede biler til forsiden</p>
 </div>
-
-<div class="create-car-button">
-    <form th:action="@{/create-car}" method="get">
-        <button type="submit" class="create-car">Opret</button>
-    </form>
-</div>
-
 
 <table class="list-of-cars">
     <thead>
@@ -53,10 +44,15 @@
         <td th:text="${car.model}"></td>
         <td th:text="${car.color}"></td>
         <td th:text="${car.location}"></td>
-        <td><a class="edit-car" th:href="@{/update-car(id=${car.id})}">Rediger bil</a></td>
+        <form th:action="@{/index-highlight}" method="post">
+            <input type="hidden" name="carId" th:value="${car.id}">
+            <button id="car" type="submit">Fremhæv bil</button>
+        </form>
+
     </tr>
     </tbody>
 </table>
+
 
 </body>
 </html>

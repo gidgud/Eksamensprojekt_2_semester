@@ -95,4 +95,25 @@ public class CarController {
 
 	}
 
+	@GetMapping("/admin-highlighted-cars")
+	public String getHighlightedCars(Model model) {
+
+		List<Car> highlightedCars = carService.getHighlightedCars();
+		List<Car> cars = carService.getAllCars();
+		model.addAttribute("highlightedCars", highlightedCars);
+		model.addAttribute("cars", cars);
+
+		return "home/admin-highlighted-cars";
+
+	}
+
+	@PostMapping("/admin-pick-highlighted-cars")
+	public String updateHighlightedCars(@RequestParam int oldCarId, @RequestParam int newCarId) {
+
+		carService.updateHighlightedCars(oldCarId, newCarId);
+
+		return "redirect:/admin-highlighted-cars";
+
+	}
+
 }

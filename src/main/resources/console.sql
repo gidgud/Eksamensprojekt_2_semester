@@ -1,16 +1,16 @@
 CREATE TABLE IF NOT EXISTS user(
-                                   id           INTEGER(10) PRIMARY KEY AUTO_INCREMENT,
+    id           INTEGER(10) PRIMARY KEY AUTO_INCREMENT,
     first_name   VARCHAR(50),
     last_name    VARCHAR(50),
     address      VARCHAR(50),
     zip          INTEGER(10),
     phone_number INTEGER(10),
     email        VARCHAR(50),
-    cpr          INTEGER(11)
+    cpr          VARCHAR(10)
     );
 
 CREATE TABLE IF NOT EXISTS car(
-                                  id            INTEGER(10) PRIMARY KEY AUTO_INCREMENT,
+    id            INTEGER(10) PRIMARY KEY AUTO_INCREMENT,
     brand         VARCHAR(50),
     model         VARCHAR(50),
     steel_price   INTEGER(10),
@@ -19,27 +19,25 @@ CREATE TABLE IF NOT EXISTS car(
     color         VARCHAR(50),
     location      VARCHAR(50),
     damage_status BOOLEAN,
-    image LONGBLOB
+    image         LONGBLOB,
+    highlighted   BOOLEAN,
+    monthly_price DOUBLE(10),
     );
 
 CREATE TABLE IF NOT EXISTS admin(
-                                    username VARCHAR(55),
+    username VARCHAR(55),
     password VARCHAR(55)
     );
 
 CREATE TABLE IF NOT EXISTS vehicle_report(
-                                             id     INT(10) PRIMARY KEY AUTO_INCREMENT,
-    car_id INT(10),
+    id                INT(10) PRIMARY KEY AUTO_INCREMENT,
     FOREIGN KEY (car_id) REFERENCES car (id)
     );
 
 CREATE TABLE IF NOT EXISTS rental_contract(
-                                              id                INT(10) PRIMARY KEY AUTO_INCREMENT,
+    id                INT(10) PRIMARY KEY AUTO_INCREMENT,
     from_date_time    DATETIME,
     to_date_time      DATETIME,
-    max_km            INT(10),
-    unlimited         boolean,
-    monthly_price     DOUBLE,
     active            boolean,
     user_id           INT(10),
     car_id            INT(10),
@@ -50,7 +48,7 @@ CREATE TABLE IF NOT EXISTS rental_contract(
     );
 
 CREATE TABLE IF NOT EXISTS purchase_contract(
-                                                id                INT(10) PRIMARY KEY AUTO_INCREMENT,
+    id                INT(10) PRIMARY KEY AUTO_INCREMENT,
     price             INT(10),
     receive_date      DATETIME,
     user_id           INT(10),
@@ -62,7 +60,7 @@ CREATE TABLE IF NOT EXISTS purchase_contract(
     );
 
 CREATE TABLE IF NOT EXISTS damages(
-                                      id                INT(10) PRIMARY KEY AUTO_INCREMENT,
+    id                INT(10) PRIMARY KEY AUTO_INCREMENT,
     name              VARCHAR(55),
     price             INT(10),
     vehicle_report_id INT(10),
