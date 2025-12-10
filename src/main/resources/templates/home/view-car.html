@@ -79,24 +79,20 @@
                 <span th:text="${car.damageStatus}"></span>
             </div>
 
+
+            <div class="CRUD-buttons">
+
+        <form th:action="@{/create-user(carId=${car.id})}" method="post">
+
+                <button type="submit" name="mode" value="rent" th:attr="disabled=${isDamaged or isRented or isSold}"> Lej bilen</button>
+
+                <button type="submit" name="mode" value="buy" th:attr="disabled=${isDamaged or isSold}">Køb bilen</button>
+
+            </form>
+
+            </div>
+
         </div>
-
-        <div class="CRUD-buttons">
-
-
-            <a th:href="@{/create-user(carId=${car.id})}">
-                <button type="submit"
-                        th:attr="disabled=${isDamaged or isRented or isSold}">
-                    Lej bilen
-                </button>
-            </a>
-
-            <a th:href="@{/create-user(carId=${car.id})}">
-                <button type="submit"
-                        th:attr="disabled=${isDamaged or isSold}">
-                    Køb bilen
-                </button>
-            </a>
 
         </div>
 

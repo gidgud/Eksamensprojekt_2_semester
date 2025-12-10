@@ -24,6 +24,7 @@ public class PurchaseContractRepositoryImpl implements PurchaseContractRepositor
 	}
 
 	public void createPurchaseContract(PurchaseContract purchaseContract) {
+		System.out.println(purchaseContract.getVehicleReportId());
 		String sql = "INSERT INTO purchase_contract (price, receive_date, user_id, car_id, vehicle_report_id) VALUES(?, ?, ?, ?, ?)";
 		template.update(sql, purchaseContract.getPrice(), purchaseContract.getReceiveDate(), purchaseContract.getUserId(), purchaseContract.getCarId(), purchaseContract.getVehicleReportId());
 	}
