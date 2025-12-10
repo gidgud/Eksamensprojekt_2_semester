@@ -103,30 +103,17 @@ public class CarController {
 		model.addAttribute("highlightedCars", highlightedCars);
 		model.addAttribute("cars", cars);
 
-		return "home/index-highlight";
+		return "home/admin-pick-highlighted-cars";
 
 	}
 
-	@PostMapping("/index-highlight")
-	public String updateHighlightedCars(Model model, @RequestParam int oldCarId, @RequestParam int newCarId) {
+	@PostMapping("/admin-pick-highlighted-cars")
+	public String updateHighlightedCars(@RequestParam int oldCarId, @RequestParam int newCarId) {
 
 		carService.updateHighlightedCars(oldCarId, newCarId);
 
 		return "redirect:/admin-pick-highlighted-cars";
 
 	}
-
-	/*
-	@GetMapping("/")
-	public String listCars(Model model) {
-		List<Car> cars = carService.getAllCars();
-		List<Car> firstThreeCars = carService.getFirstThreeCars();
-		model.addAttribute("cars", cars);
-		model.addAttribute("firstThreeCars", firstThreeCars);
-		return "home/index";
-	}
-
-	 */
-
 
 }
