@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
+
 @Controller
 public class PurchaseContractController{
 
@@ -45,6 +47,13 @@ public class PurchaseContractController{
 		purchaseContractService.createPurchaseContract(purchaseContract);
 		return "redirect:/";
 
+	}
+
+	@GetMapping("/admin-purchase-contracts")
+	public String allPurchaseContracts(Model model){
+		List<PurchaseContract> purchaseContracts = purchaseContractService.getPurchaseContracts();
+		model.addAttribute("purchaseContracts", purchaseContracts);
+		return "home/admin-purchase-contracts";
 	}
 
 }

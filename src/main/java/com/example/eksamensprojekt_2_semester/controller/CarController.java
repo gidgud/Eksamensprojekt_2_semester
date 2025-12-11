@@ -3,6 +3,7 @@ package com.example.eksamensprojekt_2_semester.controller;
 import java.io.IOException;
 import java.util.List;
 
+import com.example.eksamensprojekt_2_semester.model.RentalContract;
 import com.example.eksamensprojekt_2_semester.service.PurchaseContractService;
 import com.example.eksamensprojekt_2_semester.service.RentalContractService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,14 +70,16 @@ public class CarController {
 			car.setImage(imageFile.getBytes());
 		}
 		carService.updateCar(car);
-		return "redirect:/update-car";
+		return "redirect:/update-car?id=" + car.getId();
 	}
 
 	@GetMapping("/show-specific-car")
 	public String showSpecificCar(@RequestParam int id, Model model) {
-		Car car = carService.getCarById(id);
 
-		boolean isRented = rentalContractService.hasRentalContract(id);
+		Car car = carService.getCarById(id);
+		RentalContract rentalContract = new RentalContract();
+
+		boolean isRented = rentalContract.isActive();
 		boolean isSold = purchaseContractService.hasPurchaseContract(id);
 		boolean isDamaged = car.getDamageStatus();
 
@@ -84,7 +87,19 @@ public class CarController {
 		model.addAttribute("isRented", isRented);
 		model.addAttribute("isSold", isSold);
 		model.addAttribute("isDamaged", isDamaged);
+
 		return "home/view-car";
+
+	}
+
+	@PostMapping("/show-specific-car")
+	public String sendSpecificCar(@RequestParam int id, @RequestParam String mode, RedirectAttributes redirectAttributes) {
+
+		redirectAttributes.addAttribute("id", id);
+		redirectAttributes.addAttribute("mode", mode);
+
+		return "redirect:/create-user";
+
 	}
 
 	@GetMapping("/cars/fragment")

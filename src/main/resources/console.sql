@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS admin(
 
 CREATE TABLE IF NOT EXISTS vehicle_report(
                                              id                INT(10) PRIMARY KEY AUTO_INCREMENT,
-    totalCost         DOUBLE
+    total_cost         DOUBLE
     );
 
 CREATE TABLE IF NOT EXISTS rental_contract(
@@ -85,7 +85,7 @@ VALUES
     ('Fiat', 'Punto', 1750, 140, 'Green', 'Garage C', FALSE, NULL, true, 2900);
 
 -- 3. Insert Vehicle Reports (linking to cars)
-INSERT INTO vehicle_report (totalCost) VALUES (0), (0), (0);
+INSERT INTO vehicle_report (total_cost) VALUES (0), (0), (0);
 
 -- 4. Insert Rental Contracts (linking to users, cars, and vehicle reports)
 INSERT INTO rental_contract
@@ -117,4 +117,5 @@ FROM rental_contract;
 SET FOREIGN_KEY_CHECKS = 0;
 
 DROP TABLE IF EXISTS user, car, admin, vehicle_report, rental_contract, purchase_contract, damages;
+
 

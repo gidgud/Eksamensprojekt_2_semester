@@ -38,14 +38,6 @@
 				<input type="datetime-local" th:field="*{toDateTime}" required />
 			</div>
 
-			<div>
-				<label>Active:</label>
-				<select th:field="*{active}" required>
-					<option th:value="true" th:text="'true'">TRUE</option>
-					<option th:value="false" th:text="'false'">FALSE</option>
-				</select>
-			</div>
-
 			<button type="submit">Create Rental Contract</button>
 		</form>
 	</div>
