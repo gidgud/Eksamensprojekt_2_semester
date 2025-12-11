@@ -23,7 +23,7 @@ public interface RentalContractRepository {
 
 	List<Car> getTodaysReturns();
 
-    double getTotalSum();
+	double getTotalSum();
 
 	RentalContract getRentalContractByVehicleReportId(int vehicleReportId);
 

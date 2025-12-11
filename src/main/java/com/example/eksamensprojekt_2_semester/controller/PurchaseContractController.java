@@ -18,8 +18,10 @@ public class PurchaseContractController{
 
 	@Autowired
 	PurchaseContractService purchaseContractService;
+
 	@Autowired
 	CarService carService;
+
 	@Autowired
 	UserService userService;
 

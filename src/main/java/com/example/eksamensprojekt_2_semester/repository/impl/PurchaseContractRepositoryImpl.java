@@ -14,6 +14,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class PurchaseContractRepositoryImpl implements PurchaseContractRepository {
+
 	@Autowired
 	JdbcTemplate template;
 

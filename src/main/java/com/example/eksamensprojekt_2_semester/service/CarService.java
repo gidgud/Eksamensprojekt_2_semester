@@ -11,13 +11,9 @@ import com.example.eksamensprojekt_2_semester.repository.CarRepository;
 
 @Service
 public class CarService {
-	private final CarRepository carRepository;
-	private CarService carService;
 
 	@Autowired
-	public CarService(CarRepository carRepository) {
-		this.carRepository = carRepository;
-	}
+	CarRepository carRepository;
 
 	public List<Car> getAllCars() {
 		return carRepository.getAllCars();

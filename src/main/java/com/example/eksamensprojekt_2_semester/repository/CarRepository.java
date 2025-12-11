@@ -26,9 +26,6 @@ public interface CarRepository {
 
     void updateHighlightedCars(int oldCarId, int newCarId);
 
-
     List<Car> getCarByAvailabilityAndLocation(String availability, String location);
-
-
 
 }

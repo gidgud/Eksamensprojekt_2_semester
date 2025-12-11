@@ -28,9 +28,10 @@ public class AdminController {
     CarService carService;
 
     @Autowired
-    private RentalContractService rentalContractService;
+    RentalContractService rentalContractService;
+
     @Autowired
-    private VehicleReportService vehicleReportService;
+    VehicleReportService vehicleReportService;
 
     @GetMapping("/admin-login")
     public String login(@RequestParam (value = "error", required = false) String error, Model model){

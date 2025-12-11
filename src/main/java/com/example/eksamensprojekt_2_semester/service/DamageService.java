@@ -5,18 +5,13 @@ import com.example.eksamensprojekt_2_semester.repository.DamageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class DamageService {
 
-    DamageRepository damageRepository;
-
     @Autowired
-    public DamageService(DamageRepository damageRepository) {
-        this.damageRepository = damageRepository;
-    }
+    DamageRepository damageRepository;
 
     public List<Damage> fetchDamageById(int vehicleReport) {
         return damageRepository.fetchDamageById(vehicleReport);
