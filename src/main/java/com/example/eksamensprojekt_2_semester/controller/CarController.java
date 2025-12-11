@@ -78,8 +78,8 @@ public class CarController {
 
 		Car car = carService.getCarById(id);
 
-		boolean isRented = rentalContractService.isCarActiveByCarId(id);
-		boolean isSold = purchaseContractService.hasPurchaseContract(id);
+		boolean isRented = rentalContractService.isCarActiveByCarId(car.getId());
+		boolean isSold = purchaseContractService.hasPurchaseContract(car.getId());
 		boolean isDamaged = car.getDamageStatus();
 
 		model.addAttribute("car", car);

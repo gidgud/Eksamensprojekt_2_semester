@@ -89,11 +89,10 @@
                     <input type="hidden" name="id" th:value="${car.id}">
 
                     <button type="submit" name="mode" value="rent"
-                            th:attr="disabled=${isDamaged or isRented or isSold}"> Lej bilen
-                    </button>
+                            th:disabled="${isDamaged or isRented or isSold}">Lej bilen</button>
 
-                    <button type="submit" name="mode" value="buy" th:attr="disabled=${isDamaged or isSold}">Køb bilen
-                    </button>
+                    <button type="submit" name="mode" value="buy"
+                            th:disabled="${isDamaged or isSold}">Køb bilen</button>
 
 
 
