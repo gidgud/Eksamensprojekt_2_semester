@@ -46,7 +46,7 @@ public class DamageController {
         vehicleReportService.calculateTotalCost(vehicleReportId);
 
         RentalContract rentalContract = rentalContractService.getByVehicleReportId(vehicleReportId);
-        if (rentalContract != null) {
+        if (rentalContract != null && rentalContractService.isCarActiveForVehicleReport(vehicleReportId)) {
             rentalContractService.deactivateRentalContract(rentalContract.getId());
         }
 

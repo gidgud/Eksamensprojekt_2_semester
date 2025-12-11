@@ -59,7 +59,11 @@ public class RentalContractService {
 		rentalContractRepository.updateRentalContractActive(id, false);
 	}
 
-	public boolean isCarActive(int carId) {
-		return rentalContractRepository.isCarActive(carId);
+	public boolean isCarActiveForVehicleReport(int carId) {
+		return rentalContractRepository.isCarActiveForVehicleReport(carId);
+	}
+
+	public boolean isCarActiveByCarId(int carId){
+		return rentalContractRepository.isCarActiveByCarId(carId);
 	}
 }

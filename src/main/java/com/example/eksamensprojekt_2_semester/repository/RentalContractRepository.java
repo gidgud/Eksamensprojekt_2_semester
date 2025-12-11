@@ -29,6 +29,7 @@ public interface RentalContractRepository {
 
 	void updateRentalContractActive(int id, boolean isActive);
 
-	boolean isCarActive(int id);
+	boolean isCarActiveForVehicleReport(int id);
 
+	boolean isCarActiveByCarId(int id);
 }
