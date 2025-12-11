@@ -3,7 +3,7 @@ package com.example.eksamensprojekt_2_semester.model;
 public class VehicleReport {
 
     private int id;
-    private int totalCost;
+    private Integer totalCost;
 
     public VehicleReport(int id, int totalCost) {
         this.id = id;
