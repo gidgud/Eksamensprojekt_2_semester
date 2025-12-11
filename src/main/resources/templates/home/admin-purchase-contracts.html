@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>All cars admin</title>
+    <title>Purchase contracts</title>
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
@@ -23,41 +23,39 @@
 <a href="/admin-index" class="btn">Tilbage</a>
 
 <div class="page-info">
-    <h1>Bil oversigt</h1>
-    <p>På den her side finder du en oversigt af alle biler i systemet. Her finder du alt relevant
-        information og redigere dem.</p>
+    <h1>Kundernes købskontrakter</h1>
+    <p>Her kan du se en oversigt over alle købskontrakter i systemet.</p>
 </div>
-
-<div class="create-car-button">
-    <form th:action="@{/create-car}" method="get">
-        <button type="submit" class="create-car">Opret</button>
-    </form>
-</div>
-
 
 <table class="list-of-cars">
     <thead>
     <tr>
-        <th>Id</th>
-        <th>Brand</th>
-        <th>Model</th>
-        <th>Color</th>
-        <th>Location</th>
+        <th>ID</th>
+        <th>Pris</th>
+        <th>Modtagelsesdato</th>
+        <th>Bruger ID</th>
+        <th>Bil ID</th>
+        <th>Vehicle Report ID</th>
         <th></th>
     </tr>
     </thead>
 
     <tbody>
-    <tr th:each="car : ${cars}">
-        <td th:text="${car.id}"></td>
-        <td th:text="${car.brand}"></td>
-        <td th:text="${car.model}"></td>
-        <td th:text="${car.color}"></td>
-        <td th:text="${car.location}"></td>
-        <td><a class="edit-car" th:href="@{/update-car(id=${car.id})}">Rediger bil</a></td>
+    <tr th:each="contract : ${purchaseContracts}">
+        <td th:text="${contract.id}"></td>
+        <td th:text="${contract.price}"></td>
+        <td th:text="${contract.receiveDate}"></td>
+        <td th:text="${contract.userId}"></td>
+        <td th:text="${contract.carId}"></td>
+        <td th:text="${contract.vehicleReportId}"></td>
+
     </tr>
     </tbody>
 </table>
+
+</body>
+</html>
+
 
 </body>
 </html>
