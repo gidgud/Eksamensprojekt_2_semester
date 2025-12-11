@@ -34,12 +34,21 @@ public class UserController {
     }
 
     @PostMapping("/create-user")
-    public String createUser(@ModelAttribute User user, @RequestParam int carId, RedirectAttributes redirectAttributes){
-	
+    public String createUser(@ModelAttribute User user, @RequestParam int carId, @RequestParam String mode, RedirectAttributes redirectAttributes) {
+
         User savedUser = userService.createUser(user);
-	redirectAttributes.addAttribute("carId", carId);
-	redirectAttributes.addAttribute("userId", savedUser.getId());
-        return "redirect:/create-rental-contract";
+        redirectAttributes.addAttribute("carId", carId);
+        redirectAttributes.addAttribute("userId", savedUser.getId());
+
+        if (mode.equals("rent")) {
+
+            return "redirect:/create-rental-contract";
+        } else {
+
+            return "redirect:/create-purchase-contract";
+
+        }
+
     }
 
 }
