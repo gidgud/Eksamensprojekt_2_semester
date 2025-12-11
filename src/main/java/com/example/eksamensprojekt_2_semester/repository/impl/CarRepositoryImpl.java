@@ -13,8 +13,10 @@ import java.util.List;
 
 @Repository
 public class CarRepositoryImpl implements CarRepository {
+
     @Autowired
     JdbcTemplate template;
+
     @Autowired
     private JdbcTemplate jdbcTemplate;
 

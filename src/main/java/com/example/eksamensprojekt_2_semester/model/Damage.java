@@ -2,10 +2,10 @@ package com.example.eksamensprojekt_2_semester.model;
 
 public class Damage {
 
-    int id;
-    String name;
-    int price;
-    int vehicleReportId;
+    private int id;
+    private String name;
+    private int price;
+    private int vehicleReportId;
 
     public Damage() {
     }

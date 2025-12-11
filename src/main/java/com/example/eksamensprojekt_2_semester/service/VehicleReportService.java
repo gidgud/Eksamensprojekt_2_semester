@@ -10,12 +10,8 @@ import java.util.List;
 @Service
 public class VehicleReportService {
 
-    VehicleReportRepository vehicleReportRepository;
-
     @Autowired
-    VehicleReportService(VehicleReportRepository vehicleReportRepository) {
-        this.vehicleReportRepository = vehicleReportRepository;
-    }
+    VehicleReportRepository vehicleReportRepository;
 
     public int createNewVehicleReport() {
         return vehicleReportRepository.createNewVehicleReport();

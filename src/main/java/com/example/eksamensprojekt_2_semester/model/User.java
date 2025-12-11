@@ -2,14 +2,14 @@ package com.example.eksamensprojekt_2_semester.model;
 
 public class User {
 
-    int id;
-    String firstName;
-    String lastName;
-    String address;
-    int zip;
-    int phoneNumber;
-    String email;
-    String CPR;
+    private int id;
+    private String firstName;
+    private String lastName;
+    private String address;
+    private int zip;
+    private int phoneNumber;
+    private String email;
+    private String CPR;
 
     public User() {}
 

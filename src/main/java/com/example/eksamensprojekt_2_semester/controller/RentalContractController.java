@@ -23,12 +23,16 @@ import com.example.eksamensprojekt_2_semester.service.UserService;
 
 @Controller
 public class RentalContractController {
+
 	@Autowired
 	RentalContractService rentalContractService;
+
 	@Autowired
 	VehicleReportService vehicleReportService;
+
 	@Autowired
 	CarService carService;
+
 	@Autowired
 	UserService userService;
 

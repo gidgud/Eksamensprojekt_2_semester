@@ -3,7 +3,6 @@ package com.example.eksamensprojekt_2_semester.controller;
 import java.io.IOException;
 import java.util.List;
 
-import com.example.eksamensprojekt_2_semester.model.RentalContract;
 import com.example.eksamensprojekt_2_semester.service.PurchaseContractService;
 import com.example.eksamensprojekt_2_semester.service.RentalContractService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,16 +20,15 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class CarController {
-	private final CarService carService;
-	private final RentalContractService rentalContractService;
-	private final PurchaseContractService purchaseContractService;
 
 	@Autowired
-	public CarController(CarService carService, RentalContractService rentalContractService, PurchaseContractService purchaseContractService) {
-		this.carService = carService;
-		this.rentalContractService = rentalContractService;
-		this.purchaseContractService = purchaseContractService;
-	}
+	CarService carService;
+
+	@Autowired
+	RentalContractService rentalContractService;
+
+	@Autowired
+	PurchaseContractService purchaseContractService;
 
 	@GetMapping("/cars")
 	public String listCars(Model model, String availability) {

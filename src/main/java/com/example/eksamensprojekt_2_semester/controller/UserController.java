@@ -15,15 +15,13 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class UserController {
+
+    @Autowired
     UserService userService;
 
     @Autowired
     CarService carService;
 
-    @Autowired
-    public UserController(UserService userService){
-        this.userService = userService;
-    }
 
     @GetMapping("/create-user")
     public String showCreateUserForm(@RequestParam int id, @RequestParam String mode, Model model) {
