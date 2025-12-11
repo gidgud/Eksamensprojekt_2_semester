@@ -17,6 +17,7 @@ Ctrl + f for quick navigation
 12. FAQ Sections
 13. Tables
 14. Login Page
+15. Admin index
 
 --------------------
    GLOBAL STYLES
@@ -154,37 +155,48 @@ button:disabled {
     border-color: #999;
 }
 
-button:disabled:hover {
-    background-color: #999;
-    color: #666;
-}
+/*button:disabled:hover {*/
+/*    background-color: #999;*/
+/*    color: #666;*/
+/*}*/
 
 .CRUD-buttons {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 75px;
+    gap: 12px;
     margin: 50px 15px 0;
 }
 
 .CRUD-buttons button{
     padding: 10px 25px;
+    margin: 0 25px;
 }
+
 
 .btn {
-    text-align: center;
-    float: left;
-    margin-top: 15px;
-    border-radius: 12px;
-}
-
-.btn a {
-    text-decoration: none;
-    font-weight: bolder;
+    display: inline-block;
+    margin: 20px 0 0 30px;
+    font-size: 15px;
+    font-weight: 900;
     color: #1892c3;
+    text-decoration: none;
+    letter-spacing: 1px;
 }
 
-.btn a:hover {}
+
+.btn:hover {
+    color: #0F6F96;
+}
+
+.btn-light {
+    color: #F2F2F2;
+
+}
+
+.btn-light:hover {
+    color: #E5E7EB;
+}
 
 /* ---------------------------
    PAGE HEADERS - PAGE INFO
@@ -228,6 +240,10 @@ h1, h2 {
     flex-direction: column;
     align-items: center;
     text-align: center;
+}
+
+.light-shadow {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
 .car-boxes p {
@@ -470,7 +486,7 @@ h1, h2 {
     color: red;
     font-size: 16px;
     font-weight: bolder;
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
 .login-h1{
@@ -506,4 +522,52 @@ h1, h2 {
     width: 100%;
     box-sizing: border-box;
     border: 1px solid black;
+}
+
+/* ------------------
+    ADMIN INDEX
+-------------------*/
+.KPI {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    padding: 0 40px;
+}
+
+.KPI-info {
+    background: #fff;
+    border-radius: 12px;
+    padding: 2px 15px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.KPI-info span {
+    display: block;
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 12px;
+    color: #0f6f96;
+}
+
+.KPI-info a{
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 20px;
+    color: #333;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.KPI-info a:hover {
+    color: #0c5674;
+}
+
+.KPI-info p {
+    font-weight: 700;
+    font-size: 20px;
 }
