@@ -19,7 +19,7 @@
 
 <a href="/" class="btn">Tilbage</a>
 
-	<h1>Create New Purchase Contract</h1>
+	<h1>Opret ny købskontrakt</h1>
 
 	<div class="form-box">
 		<form th:action="@{/create-purchase-contract}" th:object="${purchase_contract}" method="post"
@@ -28,16 +28,16 @@
 			<input type="hidden" th:field="*{userId}" />
 
 			<div>
-				<label>Price:</label>
+				<label>Pris:</label>
 				<input type="number" step="0.01" th:field="*{price}" required />
 			</div>
 
 			<div>
-				<label>Receive Date:</label>
+				<label>Dato for modtagelse:</label>
 				<input type="datetime-local" th:field="*{receiveDate}" required />
 			</div>
 
-			<button type="submit">Create Rental Contract</button>
+			<button type="submit">Opret købskontrakt</button>
 		</form>
 	</div>
 
