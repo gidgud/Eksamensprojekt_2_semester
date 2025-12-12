@@ -19,7 +19,7 @@
 
 	<a href="/" class="btn">Tilbage</a>
 
-	<h1>Create New Rental Contract</h1>
+	<h1>Opret ny lejekontrakt</h1>
 
 	<div class="form-box">
 		<form th:action="@{/create-rental-contract}" th:object="${rental_contract}" method="post"
@@ -29,16 +29,16 @@
 			<input type="hidden" th:field="*{active}" />
 
 			<div>
-				<label>From Date Time:</label>
+				<label>Fra dato:</label>
 				<input type="datetime-local" th:field="*{fromDateTime}" required />
 			</div>
 
 			<div>
-				<label>To Date Time:</label>
+				<label>Til dato:</label>
 				<input type="datetime-local" th:field="*{toDateTime}" required />
 			</div>
 
-			<button type="submit">Create Rental Contract</button>
+			<button type="submit">Opret lejekontrakt</button>
 		</form>
 	</div>
 
